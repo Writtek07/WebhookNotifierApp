@@ -17,4 +17,4 @@
 
 * Rails version - `7.0.7`
 
-# Send the request using `curl -X POST -H "Content-Type: application/json" -d '{"data_entry":{"name":"Test"}}' http://localhost:3000/api/v1/data_entries`
+* Send the request using `curl -X POST -H "Content-Type: application/json" -d '{"data_entry":{"name":"Test"}}' http://localhost:3000/api/v1/data_entries`
