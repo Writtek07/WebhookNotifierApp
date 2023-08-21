@@ -11,6 +11,13 @@ module WebhookNotifierApp
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
 
+    #Use in controller to fetch and update
+    config.third_party_endpoints = [
+      'https://third-party-api1.com/webhook',
+      'https://third-party-api2.com/webhook'
+      # Add more endpoints as needed
+    ]
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files

@@ -1,24 +1,18 @@
-# README
+# This is an API only app created for a Assessment, which fulfills the below requirement.
+* Create a new Rails app
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+* Create a new model with a name and data of your choosing with some basic validations
 
-Things you may want to cover:
+* Create a controller for this model that contains endpoints for create and update o No authentication is required o Include some basic verification for submitted parameters
 
-* Ruby version
+* Available third-party API endpoints should be configurable (backend support only, no need for GUI)
 
-* System dependencies
+* When new data is stored or updated, all configured endpoints should be notified of the changes
 
-* Configuration
+* Third parties should be provided with means to verify the authenticity of the webhook request
 
-* Database creation
+# Configuration
 
-* Database initialization
+* Ruby version - `3.2.1`
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Rails version - `7.0.7`
