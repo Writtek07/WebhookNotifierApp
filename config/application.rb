@@ -18,6 +18,8 @@ module WebhookNotifierApp
       # Add more endpoints as needed
     ]
 
+    config.autoload_paths << Rails.root.join('lib')
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
