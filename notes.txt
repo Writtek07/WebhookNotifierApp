@@ -1,0 +1,29 @@
+When the  application sends a webhook request to a third-party API, it includes a digital signature in the request header. 
+
+The digital signature is generated using a combination of the request data and a secret key. 
+
+## Working :-
+
+The application prepares the data that needs to be sent in the request body (JSON payload).
+
+It then generates a hash of this data using a hashing algorithm (SHA-256). This creates a fixed-size string of characters.
+
+The secret key, which is known only to the application and the third-party API, is combined with the hash using a cryptographic process called HMAC (Hash-based Message Authentication Code). 
+This process generates a unique string based on the secret key and the hash.
+
+## The resulting string, the digital signature, is included in the request header.
+
+Third Party Verification:
+The third-party API, upon receiving the webhook request, performs the same steps to independently recreate the digital signature:
+
+It extracts the data from the received request body.
+
+It generates a hash of the extracted data using the same hashing algorithm.
+
+It combines the hash with its copy of the secret key using HMAC, resulting in a new digital signature.
+
+The third party compares the generated digital signature with the one included in the request header. If the two signatures match, it means that the request data hasn't been altered and that it came from an authentic source (our application).
+
+In this process, encryption is not used. Instead, the secret key is used to create a unique digital signature for the data. If the data is tampered with in transit or if someone tries to impersonate your application, the digital signature won't match when the third party recreates it, indicating that the request is not authentic.
+
+So we need to share the secret key with the External API's which will be stored in the rails credentials.yml.enc file or ENV vars using dot-env gem.
