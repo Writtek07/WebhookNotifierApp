@@ -17,6 +17,8 @@
 
 * Rails version - `7.0.7`
 
+* Using postgresql database, so will need a postgres client running on the machine 
+
 # Execution
 
 * Clone the repo
