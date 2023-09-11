@@ -1,6 +1,7 @@
 class WebhookNotifier
     require 'net/http'
     require 'openssl'
+    
   
     def self.notify(endpoint, data_entry, secret_key)
       uri = URI.parse(endpoint)
