@@ -17,6 +17,6 @@
 
 * Rails version - `7.0.7`
 
-# Send the request using `curl -X POST -H "Content-Type: application/json" -d '{"data_entry":{"name":"Test"}}' http://localhost:3000/api/v1/data_entries`
+## Send the request using `curl -X POST -H "Content-Type: application/json" -d '{"data_entry":{"name":"Test"}}' http://localhost:3000/api/v1/data_entries`
 
-# Send the request using (Using authenticator)`curl -X POST -H "Content-Type: application/json" -H "Authorization: #{your_jwt_token}" -d '{"data_entry":{"name":"New Data"}}' http://localhost:3000/api/v1/data_entries`
+## Send the request using (Using authenticator)`curl -X POST -H "Content-Type: application/json" -H "Authorization: #{your_jwt_token}" -d '{"data_entry":{"name":"New Data"}}' http://localhost:3000/api/v1/data_entries`
