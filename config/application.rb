@@ -19,6 +19,7 @@ module WebhookNotifierApp
     ]
 
     config.autoload_paths << Rails.root.join('lib')
+    config.active_job.queue_adapter = :sidekiq
 
     # Configuration for the application, engines, and railties goes here.
     #

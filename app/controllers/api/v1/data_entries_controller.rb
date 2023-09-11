@@ -1,5 +1,7 @@
 class Api::V1::DataEntriesController < ApplicationController  
   before_action :set_data_entry, only: %i[ show update destroy ]
+  before_action :authenticate_webhook, only: [:create, :update]
+
 
   # GET /data_entries
   def index
@@ -63,7 +65,17 @@ class Api::V1::DataEntriesController < ApplicationController
       configured_endpoints = Rails.configuration.third_party_endpoints
       secret_key = Rails.application.credentials.dig(:secret_key_base)
       configured_endpoints.each do |endpoint|
-        WebhookNotifier.notify(endpoint, response_data,secret_key)
+        # WebhookNotifier.notify(endpoint, response_data,secret_key)
+        WebhookNotifierJob.perform_async(endpoint, response_data, secret_key)
+      end
+    end
+
+    def authenticate_webhook
+      token = request.headers['Authorization']
+      secret_key = Rails.application.credentials.webhook_secret_key
+  
+      if WebhookAuthenticator.decode(token, secret_key).nil?
+        render json: { error: 'Unauthorized' }, status: :unauthorized
       end
     end
 end

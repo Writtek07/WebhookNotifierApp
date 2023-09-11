@@ -27,3 +27,5 @@ The third party compares the generated digital signature with the one included i
 In this process, encryption is not used. Instead, the secret key is used to create a unique digital signature for the data. If the data is tampered with in transit or if someone tries to impersonate your application, the digital signature won't match when the third party recreates it, indicating that the request is not authentic.
 
 So we need to share the secret key with the External API's which will be stored in the rails credentials.yml.enc file or ENV vars using dot-env gem.
+
+## With new changes, store the secret autheticator key in rails credentials and use the same for curl command.
